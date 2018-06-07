@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Condition</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+	<style type="text/css">
+		.no {
+		    color: #721c24;
+		    background-color: #f8d7da;
+		    border-color: #f5c6cb;
+		}
+		.yes {
+		    color: #3c763d;
+		    background-color: #dff0d8;
+		    border-color: #d6e9c6;
+		}
+		.content{
+			width: 323px;
+		}
+		.hide{
+			display: none;
+		}
+		.centered{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid content">
+		<div class="row">
+		  <div class="col-xs-6 col-md-3">
+		  	<img class="option show no" src="notAccess.png" alt="no">
+		  	<img class="option hide yes" src="canAccess.png" alt="yes">
+		  	<iframe class="option hide notpass" src="https://giphy.com/embed/8abAbOrQ9rvLG" width="auto" height="233" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+		  </div>
+		</div>
+		<div class="alert alert-info centered" role="alert"><b>Hey!! STOP</b></div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	var youCanNotAccess = function(){
+		$('.option').hide();
+		$('.alert').html('<b>You shall not pass!!!!</b>');
+		$('.notpass').show();
+	}
+	var youCanAccess = function(){
+		$('.option').hide();
+		$('.alert').html('<b>Oh sorry, Wellcome sir.</b>');
+		$('.yes').show();
+	}
+</script>
+
+</html>
