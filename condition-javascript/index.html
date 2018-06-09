@@ -34,7 +34,9 @@
 		  <div class="col-xs-6 col-md-3">
 		  	<img class="option show no" src="notAccess.png" alt="no">
 		  	<img class="option hide yes" src="canAccess.png" alt="yes">
-		  	<iframe class="option hide notpass" src="https://giphy.com/embed/8abAbOrQ9rvLG" width="auto" height="233" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+		  	<video class="option hide notpass" width="320" height="240" autoplay>
+			</video>
+		  	<!-- <iframe class="option hide notpass" src="https://giphy.com/embed/8abAbOrQ9rvLG" width="auto" height="233" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
 		  </div>
 		</div>
 		<div class="alert alert-info centered" role="alert"><b>Hey!! STOP</b></div>
@@ -45,7 +47,11 @@
 	var youCanNotAccess = function(){
 		$('.option').hide();
 		$('.alert').html('<b>You shall not pass!!!!</b>');
-		$('.notpass').show();
+		let vod = `
+			<source src="youshellnotpass.mp4" type="video/mp4">
+			  <source src="youshellnotpass.ogg" type="video/ogg">
+		`;
+		$('.notpass').show().append(vod);
 	}
 	var youCanAccess = function(){
 		$('.option').hide();
