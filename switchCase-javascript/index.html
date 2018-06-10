@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
 	<title>Operater</title>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	<style type="text/css">
+		body{
+			margin-top: 5px;
+		}
 		.no {
 		    color: #721c24;
 		    background-color: #f8d7da;
@@ -57,47 +61,55 @@
 		    margin-left: 23px;
 		    margin-bottom: 9px;
 		}
+		.alert{
+			text-align: right;
+		}
+		.active-btn{
+			background-color: cornsilk;
+		}
 	</style>
 </head>
 <body>
 	<div class="container-fluid content">
 		<div class="row">
 		  <div class="col-md-12">
-		  	<img src="initial.png">
+		  	Credit - https://www.youtube.com/watch?v=GPx2Foy3uqk - [SwingPoynt
+]
+		  	<div class="VOD"></div> <!-- VOD Shown here -->
 		  	<div class="panel">
 		  		<div class="choice-option">
-		  			<div class="alert alert-info">Dirty Bomb</div>
+		  			<div class="alert alert-info">Dirty Bomb - (กดระเบิด)</div>
 		  		</div>
 		  		<button type="button" class="btn btn-default" name="X" value="triangle">
 		  			<i class="fas triangle-up"></i>
-		  		</button> - Triangle
+		  		</button> - "triangle"
 		  	</div>
 		  	
 		  	<div class="panel">
 		  		<div class="choice-option">
-		  			<div class="alert alert-info">Kiss North</div>
+		  			<div class="alert alert-info">Kiss North - (จูบนอร์ท)</div>
 		  		</div>
 			  	<button type="button" class="btn btn-default" value="circle">
 			  		<i class="far fa-circle" style="color:red;"></i>
-			  	</button> - Circle
+			  	</button> - "circle"
 		  	</div>
 
 		  	<div class="panel">
 		  		<div class="choice-option">
-		  			<div class="alert alert-info">Sing</div>
+		  			<div class="alert alert-info">Sing - (ร้องเพลง)</div>
 		  		</div>
 			  	<button type="button" class="btn btn-default" value="times">
 			  		<i class="fas fa-times" style="color:blue;"></i>
-			  	</button> - Times
+			  	</button> - "times"
 		  	</div>
 
 		  	<div class="panel">
 		  		<div class="choice-option">
-		  			<div class="alert alert-info">Sacrifice</div>
+		  			<div class="alert alert-info">Sacrifice - (เสียสละตัวเอง)</div>
 		  		</div>
 			  	<button type="button" class="btn btn-default" name="X" value="square">
 			  		<i class="far fa-square" style="color:pink;"></i>
-			  	</button> - Square
+			  	</button> - "square"
 		  	</div>
 
 		  </div>
@@ -107,24 +119,46 @@
 
 <script type="text/javascript">
 	var buttonType = '';
+	
 	$(document).ready(function(){
 		$('button').click(function(){
 			buttonType = $(this).val();
+			console.log('ค่าของปุ่มที่กด: ',buttonType)
+			$('.active-btn').removeClass('active-btn');
+			$(this).addClass('active-btn');
 		});
+		initEvent();
 	});
+
+	var initEvent = function(){
+		setSource('initVOD');
+	}
+
 	var dirtyBomb = function(){
-		alert(buttonType);
+		setSource('DirtyBomb');
 	}
 	var kissNorth = function(){
-
+		setSource('KissNonth');
 	}
-	var sing = function(){
-
+	var sing = function(template){
+		setSource('Sing');
 	}
 	var sacrifice = function(){
-
+		setSource('Sacrifice');
+	}
+	var doNotThing = function(){
+		setSource('DoNotThing');
+	}
+	var setSource = function(name){
+		
+		var template = `
+			<video width="685" height="337" autoplay>
+			<source src="${name}.mp4" type="video/mp4">
+			<source src="${name}.ogg" type="video/ogg">
+			</video>
+		`;
+		$('.VOD').html(template);
 	}
 
 </script>
-https://www.youtube.com/watch?v=9_RONct3xAs
 </html>	
